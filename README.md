@@ -9,8 +9,9 @@ To setup this project:
   pip install python-dotenv
 2) create vars.env file at root directory and type in: \
   TELEGRAM_TOKEN = [Bot token] \
-  DATABASE = "sqlite:///database//tbot.db" \
-  PAYMENT_TOKEN = [Payment api token]
+  DATABASE = [Your desired database location] \
+  PAYMENT_TOKEN = [Payment api token] \
+  APP_DATABASE = [Your desired app_database location]
 3) change values in config.py. Their meaning is documented to the best of my abilities
 4) change localizations/en.py, ru.py to your liking. Change names/used_names.py to suit your needs.
 5) put your images in assets/meals, put your meals in ins_meals.py. Run ins_meals.py once.
