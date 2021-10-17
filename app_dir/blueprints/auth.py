@@ -34,6 +34,7 @@ def register():
                 error = f"User {username} is already registered."
             else:
                 return redirect(url_for("auth.login"))
+            local_session.close()
         flash(error)
     return render_template('auth/register.html')
 
@@ -45,7 +46,7 @@ def login():
         error = None
         local_session = db_util.Session()
         user = local_session.query(web_admin).filter(web_admin.username == username).first()
-
+        local_session.close()
         if user is None:
             error = 'Incorrect username.'
         elif not check_password_hash(user.password, password):
@@ -72,6 +73,7 @@ def load_logged_in_user():
         except:
             session.clear()
             g.user = None
+    local_session.close()
 
 @auth_bp.route('/logout')
 def logout():

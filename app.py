@@ -5,7 +5,7 @@ import main
 import config
 import app_dir.database.tabledef
 import app_dir.database.db_util
-from app_dir.blueprints.auth import auth_bp
+from app_dir.blueprints.auth import auth_bp, login_required
 
 main.main()
 
@@ -23,8 +23,10 @@ def main_app():
     return render_template("main.html", name="Guest")
 
 @app.route('/status', methods=["GET", "POST"])
+@login_required
 def status():
     global stat
+    print(request)
     if request.method == "POST":
         if request.form.get("submit_a"):
             main.start()
