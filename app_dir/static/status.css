@@ -1,0 +1,11 @@
+/* Status page styles */
+.status label{
+  font-family: "Iosevka";
+  font-size: 160%
+}
+.status input{
+  width: 15%;
+  padding: 6;
+  box-sizing: border-box;
+  border:1;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="static/styles.css">
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %} - tbot</title>
+    {% block head %}{% endblock %}
+</head>
+<body>
+  <ul class="topnav">
+    <li><a href="/status">Status</a></li>
+    <li><a href="/users">Users</a></li>
+    <li><a href="/meals">Meals</a></li>
+    <li><a href="/orders">Orders</a></li>
+    <li><a href="/admins">Admins</a></li>
+    <li class="rightli"><a href="/about">About</a></li>
+    <li class="rightli"><a href="/auth/logout">Logout</a></li>
+    <li class="rightli"><a href="/auth/login">Login</a></li>
+    <li class="rightli"><a href="/auth/register">Register</a></li>
+  </ul>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+{% block body %}{% endblock %}
+</body>
+</html>
