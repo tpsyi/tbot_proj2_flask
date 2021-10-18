@@ -9,6 +9,7 @@ from app_dir.blueprints.auth import auth_bp, login_required
 
 main.main()
 
+
 app = Flask(__name__, template_folder="app_dir/templates/", static_folder="app_dir/static")
 app.secret_key = "b_5#y2L'F4Q8z\n\xec]'"
 
@@ -36,5 +37,4 @@ def status():
             stat = "IDLE"
     return render_template("status.html", status=stat)
 
-
-app.run(host="0.0.0.0", debug=True)
+# app.run(host="0.0.0.0")
