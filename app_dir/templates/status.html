@@ -1,11 +1,16 @@
 {% extends "base.html" %}
-{% block head %}<link rel="stylesheet" href="static/status.css">{% endblock %}
+{% block head %}{% endblock %}
 {% block title %}Status{% endblock %}
 
 {% block body %}
-<form method="post" action="/status" class="status">
-    <label> Run Status: {{status}} </label><br>
-    <input class=".stat_button" type="submit" name="submit_a" value="submit_a">
-    <input class=".stat_button" type="submit" name="submit_b" value="submit_b">
+<!--<form method="post" action="/status" class="status">-->
+<!--    <label> Run Status: {{status}} </label><br>-->
+<!--    <input class=".stat_button" type="submit" name="submit_a" value="submit_a">-->
+<!--    <input class=".stat_button" type="submit" name="submit_b" value="submit_b">-->
+<!--</form>-->
+<form method="post" action="/status" style="text-align: center;">
+    <h1 style="text-align: center;">Status: {{status}}</h1>
+    <button class="btn btn-primary" type="submit" name="run" value="run" style="text-align: center;width: 169px;">Run</button>
+    <button class="btn btn-primary" type="submit" name="stop" value="stop" style="text-align: center;width: 169px;">Stop</button>
 </form>
 {% endblock %}

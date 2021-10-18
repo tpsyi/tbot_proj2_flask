@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="stylesheet" href="static/styles.css">
-    <meta charset="UTF-8">
-    <title>{% block title %}{% endblock %} - tbot</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <{% block title %}{% endblock %} - tbot</title>
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="static/css/styles.css">
     {% block head %}{% endblock %}
 </head>
+
 <body>
-  <ul class="topnav">
-    <li><a href="/status">Status</a></li>
-    <li><a href="/users">Users</a></li>
-    <li><a href="/meals">Meals</a></li>
-    <li><a href="/orders">Orders</a></li>
-    <li><a href="/admins">Admins</a></li>
-    <li class="rightli"><a href="/about">About</a></li>
-    <li class="rightli"><a href="/auth/logout">Logout</a></li>
-    <li class="rightli"><a href="/auth/login">Login</a></li>
-    <li class="rightli"><a href="/auth/register">Register</a></li>
-  </ul>
-  {% for message in get_flashed_messages() %}
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-button" style="color: var(--bs-blue);background: var(--bs-blue);">
+        <div class="container"><a class="navbar-brand" href="/" style="color: var(--bs-light);background: var(--bs-blue);">tbot-Flask</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1" style="border-color: rgba(0,0,0,0);background: var(--bs-gray-200);text-shadow: 0px 0px var(--bs-indigo);border-radius: 10px;">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/status">Status</a></li>
+                    <li class="nav-item" style="color: var(--bs-gray);"><a class="nav-link" href="#">Administrators</a></li>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">Database</a>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="#">Users</a><a class="dropdown-item" href="#">Meals</a><a class="dropdown-item" href="#">Orders</a></div>
+                    </li>
+                </ul><span class="navbar-text actions"> <a class="login" href="/auth/login">Log In</a><a class="btn btn-light action-button" role="button" href="/auth/register">Request Access</a></span>
+            </div>
+        </div>
+    </nav>
+    <script src="static/bootstrap/js/bootstrap.min.js"></script>
+    {% for message in get_flashed_messages() %}
     <div class="flash">{{ message }}</div>
-  {% endfor %}
-{% block body %}{% endblock %}
+    {% endfor %}
+    {% block body %}{% endblock %}
 </body>
+
 </html>

@@ -1,14 +1,23 @@
 {% extends 'base.html' %}
-{% block head %}<link rel="stylesheet" href="../static/styles.css">
-<link rel="stylesheet" href="../static/forms.css">{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="../static/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
+{% endblock %}
 {% block title %}Register{% endblock %}
 
 {% block body %}
-  <form method="post">
-    <label for="username">Username</label>
-    <input name="username" id="username" required>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" required>
-    <input type="submit" value="Register">
-  </form>
+    <section class="register-photo">
+        <div class="form-container">
+            <div class="image-holder"></div>
+            <form method="post">
+                <h2 class="text-center">Request <strong>access</strong> to the interface.</h2>
+                <div class="mb-3"><input class="form-control" type="username" name="username" placeholder="Username"></div>
+                <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password"></div>
+                <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Leave request</button></div>
+                <a class="already" href="auth/login">You already have an account? Login here.</a>
+            </form>
+        </div>
+    </section>
 {% endblock %}

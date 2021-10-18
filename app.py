@@ -11,9 +11,9 @@ main.main()
 
 
 app = Flask(__name__, template_folder="app_dir/templates/", static_folder="app_dir/static")
-app.secret_key = "b_5#y2L'F4Q8z\n\xec]'"
+app.secret_key = "dev"
 
-stat = "IDLE"
+stat = "Idle"
 app.register_blueprint(auth_bp)
 
 
@@ -29,12 +29,16 @@ def status():
     global stat
     print(request)
     if request.method == "POST":
-        if request.form.get("submit_a"):
+        if request.form.get("run"):
             main.start()
-            stat = "RUNNING"
-        elif request.form.get("submit_b"):
+            stat = "Running"
+        elif request.form.get("stop"):
             main.stop()
-            stat = "IDLE"
+            stat = "Idle"
     return render_template("status.html", status=stat)
 
-# app.run(host="0.0.0.0")
+@app.route('/test')
+def test():
+    return render_template("base-bs.html")
+
+app.run(host="0.0.0.0")
