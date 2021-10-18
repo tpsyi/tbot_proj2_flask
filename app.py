@@ -41,4 +41,4 @@ def status():
 def test():
     return render_template("base-bs.html")
 
-app.run(host="0.0.0.0")
+# app.run(host="0.0.0.0")
