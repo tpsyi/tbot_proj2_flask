@@ -10,8 +10,6 @@ from sqlalchemy.pool import SingletonThreadPool
 from app_dir.database.tabledef import web_admin
 from app_dir.database import db_util
 
-# engine = create_engine(config.APP_DATABASE, echo=False, poolclass=SingletonThreadPool)
-# local_session = db_util.Session()
 
 auth_bp = Blueprint('auth', __name__, url_prefix='/auth')
 

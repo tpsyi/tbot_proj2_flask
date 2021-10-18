@@ -1,6 +1,5 @@
 import config
-from sqlalchemy import *
-from sqlalchemy.orm import *
+from sqlalchemy import Column, String, Integer, Boolean, DateTime
 
 class web_admin(config.Base):
     __tablename__ = 'web_admins'
