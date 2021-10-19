@@ -3,9 +3,8 @@ from flask import (
 )
 import main
 import config
-import app_dir.database.tabledef
-import app_dir.database.db_util
 from app_dir.blueprints.auth import auth_bp, login_required
+from app_dir.blueprints.tables import table_bp
 
 main.main()
 
@@ -15,6 +14,7 @@ app.secret_key = "dev"
 
 stat = "Idle"
 app.register_blueprint(auth_bp)
+app.register_blueprint(table_bp)
 
 
 @app.route('/', methods=["GET", "POST"])
@@ -37,8 +37,16 @@ def status():
             stat = "Idle"
     return render_template("status.html", status=stat)
 
-@app.route('/test')
-def test():
-    return render_template("base-bs.html")
+class CLASS:
+  def __init__(self, name, age, test):
+    self.name = name
+    self.age = age
+    self.test = test
 
-# app.run(host="0.0.0.0")
+# @app.route('/admins')
+# def admins_db():
+#     h_test = ["1st", "2nd", "propaty"]
+#     local_session = db
+#     return render_template("base_table.html", headings=h_test, data=test)
+
+app.run(host="0.0.0.0")

@@ -7,7 +7,7 @@ import config
 ENGINE = create_engine(config.DATABASE)
 
 # Create all tables if they don't exist
-config.Base.metadata.create_all(ENGINE)
+config.TBase.metadata.create_all(ENGINE)
 
 # Define our session object which we'll instantiate in other modules.
 Session = sessionmaker(ENGINE)

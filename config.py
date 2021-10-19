@@ -15,12 +15,14 @@ DATABASE = os.environ.get("DATABASE", "sqlite:///database//tbot.db")
 # Default database location for web interface
 APP_DATABASE = os.environ.get("APP_DATABASE", "sqlite:///app_dir//database//app.db")
 # Generated salt length, required for password, recommended >= 16
-SALT_LENGTH = os.environ.get("SALT_LENGTH", 8)
+SALT_LENGTH = int(os.environ.get("SALT_LENGTH", 8))
 # Generated key length, required for password, recommended >= 64
-KEY_LENGTH = os.environ.get("KEY_LENGTH", 8)
+KEY_LENGTH = int(os.environ.get("KEY_LENGTH", 8))
 # Hash iteration count; the more the better, but also the slower. Recommended >=10000
-ITERATION_COUNT = os.environ.get("ITERATION_COUNT", 100)
-Base = declarative_base()
+ITERATION_COUNT = int(os.environ.get("ITERATION_COUNT", 100))
+
+TBase = declarative_base()
+WBase = declarative_base()
 
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
 PAYMENT_TOKEN = os.environ.get("PAYMENT_TOKEN")

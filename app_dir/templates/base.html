@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <{% block title %}{% endblock %} - tbot</title>
-    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="static/css/Navigation-with-Button.css">
-    <link rel="stylesheet" href="static/css/styles.css">
+    <title>{% block title %}{% endblock %} - tbot</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
     {% block head %}{% endblock %}
 </head>
 
@@ -17,18 +17,29 @@
             <div class="collapse navbar-collapse" id="navcol-1" style="border-color: rgba(0,0,0,0);background: var(--bs-gray-200);text-shadow: 0px 0px var(--bs-indigo);border-radius: 10px;">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item"><a class="nav-link" href="/status">Status</a></li>
-                    <li class="nav-item" style="color: var(--bs-gray);"><a class="nav-link" href="#">Administrators</a></li>
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">Database</a>
-                        <div class="dropdown-menu"><a class="dropdown-item" href="#">Users</a><a class="dropdown-item" href="#">Meals</a><a class="dropdown-item" href="#">Orders</a></div>
+                    <li class="nav-item" style="color: var(--bs-gray);"><a class="nav-link" href="/table/admins">Administrators</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">Database</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/table/users">Users</a>
+                            <a class="dropdown-item" href="/table/meals">Meals</a>
+                            <a class="dropdown-item" href="/table/orders">Orders</a>
+                        </div>
                     </li>
-                </ul><span class="navbar-text actions"> <a class="login" href="/auth/login">Log In</a><a class="btn btn-light action-button" role="button" href="/auth/register">Request Access</a></span>
+                </ul>
+                <span class="navbar-text actions" style="margin-left: 20px; margin-right: 20px;">
+                    <a class="btn btn-light action-button" style = "border-radius: 5px; margin-right: 10px; background: var(--bs-blue);" href="/auth/login">Log In</a>
+                    <a class="btn btn-light action-button" style = "border-radius: 5px; margin-right: 10px; background: var(--bs-green);" role="button" href="/auth/register">Request Access</a>
+                    <a class="btn btn-light float-end action-button" style = "background: var(--bs-red); border-radius: 5px; margin-right: 20px; margin-bottom: 5px;" role="button" href="/auth/logout">Log Out</a>
+                </span>
             </div>
         </div>
     </nav>
-    <script src="static/bootstrap/js/bootstrap.min.js"></script>
-    {% for message in get_flashed_messages() %}
-    <div class="flash">{{ message }}</div>
-    {% endfor %}
+    <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../static/js/Bootstrap-DataTables.js"></script>
+
     {% block body %}{% endblock %}
 </body>
 

@@ -7,7 +7,7 @@ import config
 APP_ENGINE = create_engine(config.APP_DATABASE)
 
 # Create all tables if they don't exist
-config.Base.metadata.create_all(APP_ENGINE)
+config.WBase.metadata.create_all(APP_ENGINE)
 
 # Define our session object which we'll instantiate in other modules.
 Session = sessionmaker(APP_ENGINE)

@@ -2,7 +2,7 @@ import config
 from sqlalchemy import Column, Integer, String, Boolean, Float, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
 
-class db_User(config.Base):
+class db_User(config.TBase):
 
     __tablename__ = 'db_users'
 
@@ -14,7 +14,7 @@ class db_User(config.Base):
     reg_date = Column(DateTime)
 
 
-class Meal(config.Base):
+class Meal(config.TBase):
 
     __tablename__ = 'meals'
 
@@ -25,7 +25,7 @@ class Meal(config.Base):
     orders = relationship("Order", back_populates="meal")
 
 
-class Order(config.Base):
+class Order(config.TBase):
 
     __tablename__ = 'orders'
 

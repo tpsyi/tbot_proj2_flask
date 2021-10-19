@@ -1,7 +1,12 @@
 {% extends "base.html" %}
-{% block head %}<link rel="stylesheet" href="static/main.css">{% endblock %}
 {% block title %}Main Page{% endblock %}
 
 {% block body %}
-<h1>Welcome, {{name}}!</h1>
+<h1 align=center>Welcome, {{name}}!</h1>
+<p style="text-align:center; font-style:italic;">Using this web-interface you can do various stuff related to the telegram bot.</p>
+<p style="text-align:center; font-style:italic;"> Use navigation menu to access different part of this website.</p>
+<p style="text-align:center; font-style:italic;">On the Status page you can run/stop bot, keep in mind though you will
+    have to restart the web app if you made changes to the bot's code!</p>
+<p style="text-align:center; font-style:italic;"> You can also view databases related to the bot and view the list
+of administrators who can access the site's functions.</p>
 {% endblock %}

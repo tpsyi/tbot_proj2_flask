@@ -1,7 +1,7 @@
 import config
 from sqlalchemy import Column, String, Integer, Boolean, DateTime
 
-class web_admin(config.Base):
+class web_admin(config.WBase):
     __tablename__ = 'web_admins'
 
     id = Column(Integer, primary_key=True, autoincrement=True)

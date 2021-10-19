@@ -19,4 +19,7 @@
             </form>
         </div>
     </section>
+{% for message in get_flashed_messages() %}
+    <p class=message>{{ message }}
+{% endfor %}
 {% endblock %}

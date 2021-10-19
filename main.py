@@ -816,7 +816,6 @@ def insert_meals() -> None:
     ins_meals.insert()
 def start():
     updater.start_polling()
-    updater.idle()
 def stop():
     updater.stop()
 

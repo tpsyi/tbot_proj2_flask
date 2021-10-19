@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}
+    {{table_name}}
+{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="../static/css/Bootstrap-DataTables.css">
+    <link rel="stylesheet" href="../static/css/Customizable-Background--Overlay.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="../static/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
+{% endblock %}
+{% block body %}
+<div class="bootstrap_datatables">
+<div class="container py-5">
+  <header class="text-center text-black">
+    <h1 class="display-4">Bootstrap Datatables</h1>
+  </header>
+  <div class="row py-5">
+    <div class="col-lg-10 mx-auto">
+      <div class="card rounded shadow border-0">
+        <div class="card-body p-5 bg-white rounded">
+          <div class="table-responsive">
+            <table id="example" style="width:100%" class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  {% for heading in headings %}
+                  <th>{{heading}}</th>
+                  {% endfor %}
+                </tr>
+              </thead>
+              <tbody>
+                {% for row in data %}
+                <tr>
+                  {% for entry in row %}
+                    <td>{{entry}}</td>
+                  {% endfor %}
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../static/js/Bootstrap-DataTables.js"></script>
+    <script id="bs-live-reload" data-sseport="51395" data-lastchange="1634655615347" src="/js/livereload.js"></script>
+{% endblock %}
