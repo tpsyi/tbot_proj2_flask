@@ -37,16 +37,6 @@ def status():
             stat = "Idle"
     return render_template("status.html", status=stat)
 
-class CLASS:
-  def __init__(self, name, age, test):
-    self.name = name
-    self.age = age
-    self.test = test
 
-# @app.route('/admins')
-# def admins_db():
-#     h_test = ["1st", "2nd", "propaty"]
-#     local_session = db
-#     return render_template("base_table.html", headings=h_test, data=test)
-
-app.run(host="0.0.0.0")
+if __name__ == "__main__":
+    app.run(host="0.0.0.0")
