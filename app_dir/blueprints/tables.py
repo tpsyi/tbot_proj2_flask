@@ -17,7 +17,7 @@ def admin_db():
     for i in local_session.query(web_admin).all():
         table.append([i.id, i.username, bool_str[i.active], i.reg_date])
     local_session.close()
-    return render_template("base_table.html", headings=headings, data=table)
+    return render_template("base_table.html", headings=headings, data=table, table_name="Admins")
 
 @table_bp.route("/users")
 @login_required
@@ -29,7 +29,7 @@ def users_db():
     for i in local_session.query(db_User).all():
         table.append([i.id, i.phone_number, i.name, bool_str[i.is_chef], i.reg_date])
     local_session.close()
-    return render_template("base_table.html", headings=headings, data=table)
+    return render_template("base_table.html", headings=headings, data=table, table_name="Users")
 
 @table_bp.route("/meals")
 @login_required
@@ -40,7 +40,7 @@ def meals_db():
     for i in local_session.query(Meal).all():
         table.append([i.id, i.name, i.cost, len(i.orders)])
     local_session.close()
-    return render_template("base_table.html", headings=headings, data=table)
+    return render_template("base_table.html", headings=headings, data=table, table_name="Meals")
 
 @table_bp.route("/orders")
 @login_required
@@ -51,5 +51,5 @@ def orders_db():
     for i in local_session.query(Order).all():
         table.append([i.id, i.user_id, i.contact_phone_number, i.content, i.status.capitalize(), i.ins_date])
     local_session.close()
-    return render_template("base_table.html", headings=headings, data=table)
+    return render_template("base_table.html", headings=headings, data=table, table_name="Orders")
 
