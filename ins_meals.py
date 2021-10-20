@@ -44,6 +44,7 @@ ins_meals.append(Meal(
                   name='Tacos',
                   cost=1600))
 
+
 def clear_meal_db():
     local_session = db_util.Session()
     for i in local_session.query(Meal).all():
@@ -51,10 +52,10 @@ def clear_meal_db():
         local_session.delete(i)
     local_session.close()
 
+
 def insert():
     local_session = db_util.Session()
     if len(local_session.query(Meal).filter(Meal.name != ins_meals[0].name).all()) == 0:
-        print("!!!")
         for meal in ins_meals:
             local_session.add(meal)
         local_session.commit()

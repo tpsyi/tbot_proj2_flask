@@ -811,11 +811,16 @@ def main():
     dispatcher.add_handler(MessageHandler(Filters.successful_payment, successful_payment_callback))
 
 
-def insert_meals() -> None:
+def insert_meals() -> None:  # Debug
     import ins_meals
     ins_meals.insert()
+
+
 def start():
     updater.start_polling()
+    insert_meals()  # Debug
+
+
 def stop():
     updater.stop()
 
@@ -824,4 +829,3 @@ def stop():
 if __name__ == '__main__':
     main()
     start()
-    insert_meals()
